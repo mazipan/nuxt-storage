@@ -1,6 +1,10 @@
-# nuxt-storage
+# 🛢 Nuxt-Storage
 
-🛢 Utilities for easy read and write browser's storage in Nuxt.js project
+> Utilities for easy read and write browser's storage in Nuxt.js project
+
+[![License](https://img.shields.io/github/license/mazipan/nuxt-storage.svg?longCache=true)](https://github.com/mazipan/nuxt-storage) [![version](https://img.shields.io/npm/v/nuxt-storage.svg?maxAge=3600)](https://www.npmjs.com/package/nuxt-storage)
+[![downloads](https://img.shields.io/npm/dt/nuxt-storage.svg?maxAge=86400)](https://www.npmjs.com/package/nuxt-storage) [![Travis](https://img.shields.io/travis/mazipan/nuxt-storage.svg?maxAge=86400)](https://travis-ci.org/mazipan/nuxt-storage)
+[![codecov](https://codecov.io/gh/mazipan/nuxt-storage/branch/master/graph/badge.svg?maxAge=86400)](https://codecov.io/gh/mazipan/nuxt-storage)
 
 ## Why I need this package?
 
@@ -33,7 +37,11 @@ nuxtStorage.sessionStorage.setData('key', 'value');
 Partial import
 
 ```js
-import { getData, setData } from 'nuxt-storage/dist/local-storage';
+// # for local storage
+import { getData, setData } from 'nuxt-storage/src/local-storage';
+
+// # for session storage
+// import { getData, setData } from 'nuxt-storage/src/session-storage';
 
 setData('key', 'value');
 ```

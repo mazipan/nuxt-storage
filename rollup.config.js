@@ -3,7 +3,7 @@ import { terser } from "rollup-plugin-terser";
 const license = require('rollup-plugin-license')
 
 export default {
-  input: 'index.js',
+  input: 'nuxt-storage.js',
   output: {
     name: 'nuxtStorage',
     file: 'dist/nuxt-storage.min.js',
