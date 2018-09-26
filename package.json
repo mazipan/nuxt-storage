@@ -1,0 +1,49 @@
+{
+  "name": "nuxt-storage",
+  "version": "1.0.0",
+  "description": "🛢 Utilities for easy read and write browser's storage in Nuxt.js project",
+  "main": "dist/nuxt-storage.min.js",
+  "files": [
+    "index.js",
+    "src",
+    "dist/nuxt-storage.min.js"
+  ],
+  "scripts": {
+    "build": "./node_modules/.bin/rollup -c",
+    "test": "./node_modules/.bin/jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mazipan/nuxt-storage.git"
+  },
+  "keywords": [
+    "nuxt",
+    "nuxt-storage",
+    "browser-storage",
+    "local-storage",
+    "session-storage"
+  ],
+  "author": "Irfan Maulana <github.com/mazipan>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mazipan/nuxt-storage/issues"
+  },
+  "homepage": "https://github.com/mazipan/nuxt-storage#readme",
+  "devDependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-external-helpers": "7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "23.6.0",
+    "jest": "^23.6.0",
+    "rollup": "0.66.2",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-license": "^0.7.0",
+    "rollup-plugin-terser": "^3.0.0",
+    "rollup-plugin-uglify": "^6.0.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.0.0"
+  }
+}
