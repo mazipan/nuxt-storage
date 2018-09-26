@@ -1,4 +1,9 @@
-import { __isNotNull } from './util';
+const __isNotNull = (variable) => {
+  if (typeof variable !== 'undefined' && variable !== null) {
+    return true;
+  }
+  return false;
+};
 
 export const __getData = (storage, key) => {
   if (process.client) {

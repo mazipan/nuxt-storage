@@ -1,6 +1,6 @@
 {
   "name": "nuxt-storage",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "🛢 Utilities for easy read and write browser's storage in Nuxt.js project",
   "main": "dist/nuxt-storage.min.js",
   "files": [
