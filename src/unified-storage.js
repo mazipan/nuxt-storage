@@ -13,7 +13,7 @@ export const __getData = (storage, key) => {
       if (__isNotNull(cache)) {
         const cacheParsed = JSON.parse(cache);
         if (__isNotNull(cacheParsed)) {
-          // cek expiry
+          // cek cache expiry time
           const timeNow = new Date().getTime();
           const dateCache = cacheParsed.created;
           const expiryInMilis = parseInt(cacheParsed.expiry, 10) * 60 * 1000;
@@ -21,8 +21,10 @@ export const __getData = (storage, key) => {
 
           if (expiryTime > timeNow) {
             return cacheParsed.value;
+          } else {
+            // remove if cache expired to get bigger space
+            ls.removeItem(key);
           }
-          // cache expired
         }
       }
     } catch (e) {}
