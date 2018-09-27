@@ -5,7 +5,7 @@ export const __mockStore = () => {
     setItem: (key, value) => {
       data[key] = value;
     },
-    deleteItem: (key) => {
+    removeItem: (key) => {
       data[key] = undefined;
     },
   };
