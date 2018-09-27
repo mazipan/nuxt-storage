@@ -21,6 +21,5 @@
         }]
       ]
     }
-  },
-  "plugins": ["@babel/plugin-external-helpers"]
+  }
 }
