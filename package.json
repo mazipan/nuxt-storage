@@ -1,15 +1,20 @@
 {
   "name": "nuxt-storage",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "🛢 Utilities for easy read and write browser's storage in Nuxt.js project",
   "main": "dist/nuxt-storage.min.js",
   "files": [
     "index.js",
     "src",
-    "dist/nuxt-storage.min.js"
+    "dist/nuxt-storage.min.js",
+    "dist/nuxt-storage.min.js.gz",
+    "local-storage.min.js",
+    "local-storage.min.js.gz",
+    "session-storage.min.js",
+    "session-storage.min.js.gz"
   ],
   "scripts": {
-    "build": "./node_modules/.bin/rollup -c",
+    "build": "cross-env NODE_ENV=production ./node_modules/.bin/webpack --progress --hide-modules",
     "test": "./node_modules/.bin/jest",
     "prepublishOnly": "yarn run build"
   },
@@ -37,12 +42,15 @@
     "@babel/preset-env": "^7.1.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "23.6.0",
+    "babel-loader": "^8.0.2",
+    "compression-webpack-plugin": "^2.0.0",
+    "copy-webpack-plugin": "4.5.2",
+    "cross-env": "5.2.0",
     "jest": "^23.6.0",
-    "rollup": "0.66.2",
-    "rollup-plugin-babel": "^4.0.3",
-    "rollup-plugin-license": "^0.7.0",
-    "rollup-plugin-terser": "^3.0.0",
-    "rollup-plugin-uglify": "^6.0.0"
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.9",
+    "webpack-serve": "^2.0.2"
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0"

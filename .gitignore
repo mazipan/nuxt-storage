@@ -62,3 +62,9 @@ typings/
 .next
 
 dist/
+session-storage.min.js
+session-storage.min.js.gz
+local-storage.min.js
+local-storage.min.js.gz
+session-storage/
+local-storage/

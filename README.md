@@ -38,10 +38,10 @@ Partial import
 
 ```js
 // # for local storage
-import { getData, setData } from 'nuxt-storage/src/local-storage';
+import { getData, setData } from 'nuxt-storage/local-storage';
 
 // # for session storage
-// import { getData, setData } from 'nuxt-storage/src/session-storage';
+// import { getData, setData } from 'nuxt-storage/session-storage';
 
 setData('key', 'value');
 ```
