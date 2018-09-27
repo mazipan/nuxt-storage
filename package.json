@@ -1,18 +1,7 @@
 {
   "name": "nuxt-storage",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "🛢 Utilities for easy read and write browser's storage in Nuxt.js project",
-  "main": "dist/nuxt-storage.min.js",
-  "files": [
-    "index.js",
-    "src",
-    "dist/nuxt-storage.min.js",
-    "dist/nuxt-storage.min.js.gz",
-    "local-storage.min.js",
-    "local-storage.min.js.gz",
-    "session-storage.min.js",
-    "session-storage.min.js.gz"
-  ],
   "scripts": {
     "build": "cross-env NODE_ENV=production ./node_modules/.bin/webpack --progress --hide-modules",
     "test": "./node_modules/.bin/jest",
@@ -35,6 +24,17 @@
     "url": "https://github.com/mazipan/nuxt-storage/issues"
   },
   "homepage": "https://github.com/mazipan/nuxt-storage#readme",
+  "main": "dist/nuxt-storage.min.js",
+  "files": [
+    "index.js",
+    "src",
+    "dist/nuxt-storage.min.js",
+    "dist/nuxt-storage.min.js.gz",
+    "local-storage/index.js",
+    "local-storage/index.js.gz",
+    "session-storage/index.js",
+    "session-storage/index.js.gz"
+  ],
   "devDependencies": {
     "@babel/core": "^7.1.0",
     "@babel/plugin-external-helpers": "7.0.0",
