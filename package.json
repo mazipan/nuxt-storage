@@ -1,6 +1,6 @@
 {
   "name": "nuxt-storage",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "🛢 Utilities for easy read and write browser's storage in Nuxt.js project",
   "scripts": {
     "build": "cross-env NODE_ENV=production ./node_modules/.bin/webpack --progress --hide-modules",
