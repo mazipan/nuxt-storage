@@ -25,12 +25,6 @@ describe('unified-storage', () => {
     expect(result.value).toEqual('');
     done();
   });
-  test('__setData should return null because still in server process', (done) => {
-    process.client = false;
-    const result = __setData(storage, key, sampleData);
-    expect(result).toBe(null);
-    done();
-  });
   test('__getData should successfully', (done) => {
     __setData(storage, key, sampleData);
     const result = __getData(storage, key);
@@ -45,12 +39,6 @@ describe('unified-storage', () => {
   test('__getData should return null because data is null', (done) => {
     __setData(storage, 'KEY_NULL', null);
     const result = __getData(storage, 'KEY_NULL');
-    expect(result).toBe(null);
-    done();
-  });
-  test('__getData should return null because still in server process', (done) => {
-    process.client = false;
-    const result = __getData(storage, key);
     expect(result).toBe(null);
     done();
   });

@@ -35,18 +35,6 @@ describe('session-storage', () => {
     expect(result).toEqual(sampleData);
     done();
   });
-  test('setData should return null because still in server process', (done) => {
-    process.client = false;
-    const result = setData( key, sampleData);
-    expect(result).toBe(null);
-    done();
-  });
-  test('getData should return null because still in server process', (done) => {
-    process.client = false;
-    const result = getData(key);
-    expect(result).toBe(null);
-    done();
-  });
   test('getData should return null because key not exist', (done) => {
     const result = getData('KEY_SEMBARANGAN');
     expect(result).toBe(null);
