@@ -61,6 +61,7 @@ typings/
 # next.js build output
 .next
 
+eslint-report.html
 dist/
 session-storage.min.js
 session-storage.min.js.gz

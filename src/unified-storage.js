@@ -44,3 +44,15 @@ export const __setData = (storage, key, value = '', expiryInMinutes = 5) => {
   } catch (e) {}
   return null;
 };
+
+export const __removeItem = (storage, key) => {
+  try {
+    storage.removeItem(key)
+  } catch (e) {}
+};
+
+export const __clear = (storage) => {
+  try {
+    storage.clear()
+  } catch (e) {}
+};
