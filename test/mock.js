@@ -1,12 +1,12 @@
 export const __mockStore = () => {
-  const data = {};
+  const data = {}
   return {
     getItem: key => data[key],
     setItem: (key, value) => {
-      data[key] = value;
+      data[key] = value
     },
     removeItem: (key) => {
-      data[key] = undefined;
-    },
-  };
-};
+      data[key] = undefined
+    }
+  }
+}

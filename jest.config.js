@@ -7,10 +7,10 @@ module.exports = {
   ],
   coverageDirectory: 'test/coverage',
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/$1',
+    '^@/(.*)$': '<rootDir>/$1'
   },
   moduleFileExtensions: ['js', 'json'],
   transform: {
-    "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+    '^.+\\.js$': '<rootDir>/node_modules/babel-jest'
   }
 }

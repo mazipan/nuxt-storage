@@ -1,23 +1,22 @@
-const path = require('path');
-const webpack = require('webpack');
-const CompressionPlugin = require("compression-webpack-plugin");
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path')
+const webpack = require('webpack')
+const CompressionPlugin = require('compression-webpack-plugin')
 
-const NODE_ENV = process.env.NODE_ENV;
+const NODE_ENV = process.env.NODE_ENV
 
 const getAbsolutePath = function (folderName) {
-  return path.join(__dirname, folderName);
+  return path.join(__dirname, folderName)
 }
 
 const config = {
   entry: {
-    ['nuxt-storage']: './nuxt-storage.js',
-    ['local-storage']: './src/local-storage.js',
-    ['session-storage']: './src/session-storage.js'
+    'nuxt-storage': './nuxt-storage.js',
+    'local-storage': './src/local-storage.js',
+    'session-storage': './src/session-storage.js'
   },
   output: {
     filename: '[name].min.js',
-    path: __dirname + '/dist',
+    path: getAbsolutePath('dist'),
     libraryTarget: 'commonjs2'
   },
   mode: 'production',
@@ -35,20 +34,7 @@ const config = {
     }),
     new CompressionPlugin({
       algorithm: 'gzip'
-    }),
-    new CopyWebpackPlugin([{
-      from: path.resolve(getAbsolutePath('dist/local-storage.min.js')),
-      to: path.resolve(getAbsolutePath('local-storage/index.js'))
-    }, {
-      from: path.resolve(getAbsolutePath('dist/local-storage.min.js.gz')),
-      to: path.resolve(getAbsolutePath('local-storage/index.js.gz'))
-    }, {
-      from: path.resolve(getAbsolutePath('dist/session-storage.min.js')),
-      to: path.resolve(getAbsolutePath('session-storage/index.js'))
-    }, {
-      from: path.resolve(getAbsolutePath('dist/session-storage.min.js.gz')),
-      to: path.resolve(getAbsolutePath('session-storage/index.js.gz'))
-    }]),
+    })
   ],
   module: {
     rules: [{
@@ -62,6 +48,6 @@ const config = {
       }
     }]
   }
-};
+}
 
-module.exports = config;
+module.exports = config

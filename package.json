@@ -3,12 +3,14 @@
   "version": "1.1.0",
   "description": "🛢 Utilities for easy read and write browser's storage in Nuxt.js project",
   "scripts": {
-    "build": "cross-env NODE_ENV=production ./node_modules/.bin/webpack --progress --hide-modules",
-    "test": "./node_modules/.bin/jest",
+    "clean": "rimraf dist",
+    "copy": "node ./copy.js",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "test": "jest",
     "lint": "eslint --ext .js --ignore-path .gitignore .",
     "lint:fix": "eslint --ext .js --ignore-path .gitignore . --fix",
     "lint:report": "eslint --ext .js --ignore-path .gitignore . --fix -f html-extended -o eslint-report.html",
-    "prepublishOnly": "yarn run build"
+    "prepublishOnly": "yarn clean && yarn build && yarn copy"
   },
   "repository": {
     "type": "git",
@@ -53,6 +55,7 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "jest": "^24.5.0",
+    "rimraf": "^2.6.3",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2"
   }

@@ -1,38 +1,38 @@
-import { __getData, __setData, __removeItem, __clear } from './unified-storage';
+import { __getData, __setData, __removeItem, __clear } from './unified-storage'
 
-function getStorage() {
+function getStorage () {
   return 'localStorage' in window && window.localStorage
     ? window.localStorage
-    : null;
+    : null
 }
 
 export const getData = key => {
   try {
-    const ls = getStorage();
-    return __getData(ls, key);
+    const ls = getStorage()
+    return __getData(ls, key)
   } catch (e) {}
 
-  return null;
-};
+  return null
+}
 
 export const setData = (key, value = '', expiryInMinutes = 5) => {
   try {
-    const ls = getStorage();
-    return __setData(ls, key, value, expiryInMinutes);
+    const ls = getStorage()
+    return __setData(ls, key, value, expiryInMinutes)
   } catch (e) {}
-  return null;
-};
+  return null
+}
 
 export const removeItem = key => {
   try {
-    const ls = getStorage();
-    __removeItem(ls, key);
+    const ls = getStorage()
+    __removeItem(ls, key)
   } catch (e) {}
-};
+}
 
 export const clear = () => {
   try {
-    const ls = getStorage();
-    __clear(ls);
+    const ls = getStorage()
+    __clear(ls)
   } catch (e) {}
-};
+}
