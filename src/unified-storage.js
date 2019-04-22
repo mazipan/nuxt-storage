@@ -15,7 +15,7 @@ export const __getData = (storage, key) => {
         // cek cache expiry time
         const timeNow = new Date().getTime()
         const dateCache = cacheParsed.created
-        const expiryInMilis = parseInt(cacheParsed.expiry, 10) * 60 * 1000
+        const expiryInMilis = parseInt(cacheParsed.expiry, 10) * 1000
         const expiryTime = parseInt(dateCache, 10) + expiryInMilis
 
         if (expiryTime > timeNow) {
@@ -31,13 +31,13 @@ export const __getData = (storage, key) => {
   return null
 }
 
-export const __setData = (storage, key, value = '', expiryInMinutes = 5) => {
+export const __setData = (storage, key, value = '', expiryInSeconds = (5*60)) => {
   try {
     const ls = storage
     const data = {
       created: new Date().getTime(),
       value,
-      expiry: expiryInMinutes
+      expiry: expiryInSeconds
     }
     ls.setItem(key, JSON.stringify(data))
     return data

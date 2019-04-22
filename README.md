@@ -14,7 +14,7 @@ Also coming with simple and easy to used API.
 
 ## How to install and use
 
-Install using NPM or Yarn
+Install using NPM or Yarnm
 
 ```bash
 # NPM
@@ -51,7 +51,7 @@ setData('key', 'value');
 | Method Name | Parameter              | Notes   |
 |-------------|------------------------|---------|
 | getData | `key` (type: String)       |         |
-| setData | `key` (type: String), `value` (type: any), `expiryInMinutes` (type: Number) |         |
+| setData | `key` (type: String), `value` (type: any), `expiryInSeconds` (type: Number) |         |
 | removeItem | `key` (type: String)    |         |
 | clear   | -                          |         |
 
