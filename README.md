@@ -14,7 +14,7 @@ Also coming with simple and easy to used API.
 
 ## How to install and use
 
-Install using NPM or Yarnm
+Install using NPM or Yarn
 
 ```bash
 # NPM
