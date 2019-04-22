@@ -1,6 +1,14 @@
 const fs = require('fs')
 const path = require('path')
 
+function checkDirectorySync (directory) {
+  try {
+    fs.statSync(directory)
+  } catch (e) {
+    fs.mkdirSync(directory)
+  }
+}
+
 const getAbsolutePath = function (folderName) {
   return path.join(__dirname, folderName)
 }
@@ -15,6 +23,9 @@ function copy (source, dest) {
 }
 
 (function doCopy () {
+  checkDirectorySync(getAbsolutePath('local-storage'))
+  checkDirectorySync(getAbsolutePath('session-storage'))
+
   copy('dist/local-storage.min.js', 'local-storage/index.js')
   copy('dist/local-storage.min.js.gz', 'local-storage/index.js.gz')
   // session storage
