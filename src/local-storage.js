@@ -15,10 +15,10 @@ export const getData = key => {
   return null
 }
 
-export const setData = (key, value = '', expiryInMinutes = 5) => {
+export const setData = (key, value = '', expiryInMinutes = 5, expiryUnit = 'm') => {
   try {
     const ls = getStorage()
-    return __setData(ls, key, value, expiryInMinutes)
+    return __setData(ls, key, value, expiryInMinutes, expiryUnit)
   } catch (e) {}
   return null
 }

@@ -9,8 +9,7 @@
 ## Why I need this package?
 
 In Nuxt, it's hard to play with browser's storage like `sessionStorage` and `localStorage`.
-This package will help you handle this client side storage easier.
-Also coming with simple and easy to used API.
+This package will help you handle client side storage with a simple API and with various useful additional features such as expiry.
 
 ## How to install and use
 
@@ -48,12 +47,14 @@ setData('key', 'value');
 
 ## API
 
-| Method Name | Parameter              | Notes   |
-|-------------|------------------------|---------|
-| getData | `key` (type: String)       |         |
-| setData | `key` (type: String), `value` (type: any), `expiryInMinutes` (type: Number) |         |
-| removeItem | `key` (type: String)    |         |
-| clear   | -                          |         |
+| Method Name | Parameter                         | Default Value | Available Options |
+|-------------|-----------------------------------|---------------|-------------------|
+| getData     | `key` (type: String)              | Empty String  |  |
+| setData     | `key` (type: String)              | Empty String  |  |
+|             | `value` (type: any)               | Empty String  |  |
+|             | `expiryInMinutes` (type: Number)  | 5             |  |
+|             | `expiryUnit` (type: String)       | m             | `s` = second, `m` = minutes, `h` = hour, `d` = day  |
+| clear       | -                                 |               |  |
 
 -----
 

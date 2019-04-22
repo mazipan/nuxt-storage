@@ -12,10 +12,22 @@ export const __getData = (storage, key) => {
     if (__isNotNull(cache)) {
       const cacheParsed = JSON.parse(cache)
       if (__isNotNull(cacheParsed)) {
-        // cek cache expiry time
+        // check cache expiry time
         const timeNow = new Date().getTime()
         const dateCache = cacheParsed.created
-        const expiryInMilis = parseInt(cacheParsed.expiry, 10) * 60 * 1000
+        let milisMultiplier = (1000 * 60) // default is in minutes unit
+
+        if (cacheParsed.unit || cacheParsed.unit === 's') { // in second unit
+          milisMultiplier = (1000)
+        } else if (cacheParsed.unit || cacheParsed.unit === 'm') { // in minute unit
+          milisMultiplier = (1000 * 60)
+        } else if (cacheParsed.unit || cacheParsed.unit === 'h') { // in hour unit
+          milisMultiplier = (1000 * 60 * 60)
+        } else if (cacheParsed.unit || cacheParsed.unit === 'd') { // in day unit
+          milisMultiplier = (1000 * 60 * 60 * 24)
+        }
+
+        const expiryInMilis = parseInt(cacheParsed.expiry, 10) * milisMultiplier
         const expiryTime = parseInt(dateCache, 10) + expiryInMilis
 
         if (expiryTime > timeNow) {
@@ -31,13 +43,14 @@ export const __getData = (storage, key) => {
   return null
 }
 
-export const __setData = (storage, key, value = '', expiryInMinutes = 5) => {
+export const __setData = (storage, key, value = '', expiryInMinutes = 5, expiryUnit = 'm') => {
   try {
     const ls = storage
     const data = {
       created: new Date().getTime(),
       value,
-      expiry: expiryInMinutes
+      expiry: expiryInMinutes,
+      unit: expiryUnit
     }
     ls.setItem(key, JSON.stringify(data))
     return data
