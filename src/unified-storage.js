@@ -34,7 +34,8 @@ export const __getData = (storage, key) => {
           return cacheParsed.value
         } else {
           // remove if cache expired to get bigger space
-          ls.removeItem(key)
+          // ls.removeItem(key)
+          console.warn('storage is expired')
         }
       }
     }
