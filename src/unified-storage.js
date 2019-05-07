@@ -38,7 +38,9 @@ export const __getData = (storage, key) => {
         }
       }
     }
-  } catch (e) {}
+  } catch (e) {
+    console.warn('failed parse JSON')
+  }
 
   return null
 }
