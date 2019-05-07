@@ -52,7 +52,7 @@ setData('key', 'value');
 | getData     | `key` (type: String)              | Empty String  |  |
 | setData     | `key` (type: String)              | Empty String  |  |
 |             | `value` (type: any)               | Empty String  |  |
-|             | `expiryInMinutes` (type: Number)  | 5             |  |
+|             | `expiry` (type: Number)           | 5             |  |
 |             | `expiryUnit` (type: String)       | m             | `s` = second, `m` = minutes, `h` = hour, `d` = day  |
 | clear       | -                                 |               |  |
 
