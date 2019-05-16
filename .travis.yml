@@ -4,6 +4,7 @@ branches:
   only:
   - master
   - /^greenkeeper/.*$/
+  - /^renovate/.*$/
 script: npm run test
 after_script:
   - npm install -g codecov
