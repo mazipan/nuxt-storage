@@ -45,7 +45,7 @@
     "@commitlint/config-conventional": "7.5.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "24.8.0",
-    "babel-loader": "8.0.5",
+    "babel-loader": "8.0.6",
     "compression-webpack-plugin": "2.0.0",
     "copy-webpack-plugin": "5.0.3",
     "cross-env": "5.2.0",
