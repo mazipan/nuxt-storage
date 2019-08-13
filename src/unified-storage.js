@@ -17,13 +17,13 @@ export const __getData = (storage, key) => {
         const dateCache = cacheParsed.created
         let milisMultiplier = (1000 * 60) // default is in minutes unit
 
-        if (cacheParsed.unit || cacheParsed.unit === 's') { // in second unit
+        if (cacheParsed.unit && cacheParsed.unit === 's') { // in second unit
           milisMultiplier = (1000)
-        } else if (cacheParsed.unit || cacheParsed.unit === 'm') { // in minute unit
+        } else if (cacheParsed.unit && cacheParsed.unit === 'm') { // in minute unit
           milisMultiplier = (1000 * 60)
-        } else if (cacheParsed.unit || cacheParsed.unit === 'h') { // in hour unit
+        } else if (cacheParsed.unit && cacheParsed.unit === 'h') { // in hour unit
           milisMultiplier = (1000 * 60 * 60)
-        } else if (cacheParsed.unit || cacheParsed.unit === 'd') { // in day unit
+        } else if (cacheParsed.unit && cacheParsed.unit === 'd') { // in day unit
           milisMultiplier = (1000 * 60 * 60 * 24)
         }
 
