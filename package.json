@@ -62,7 +62,7 @@
     "lint-staged": "9.2.3",
     "rimraf": "3.0.0",
     "webpack": "4.39.2",
-    "webpack-cli": "3.3.6"
+    "webpack-cli": "3.3.7"
   },
   "husky": {
     "hooks": {
