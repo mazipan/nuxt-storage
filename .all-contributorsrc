@@ -14,6 +14,18 @@
         "test",
         "bug"
       ]
+    },
+    {
+      "login": "mazipan",
+      "name": "Irfan Maulana",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/7221389?v=4",
+      "profile": "https://www.mazipan.xyz/",
+      "contributions": [
+        "bug",
+        "maintenance",
+        "test",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
