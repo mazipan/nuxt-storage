@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "notjiam",
+      "name": "notjiam",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/3953002?v=4",
+      "profile": "http://stainfilm.com",
+      "contributions": [
+        "test",
+        "bug"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "nuxt-storage",
+  "projectOwner": "mazipan",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}
