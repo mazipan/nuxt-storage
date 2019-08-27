@@ -61,7 +61,7 @@
     "jest": "24.9.0",
     "lint-staged": "9.2.5",
     "rimraf": "3.0.0",
-    "webpack": "4.39.2",
+    "webpack": "4.39.3",
     "webpack-cli": "3.3.7"
   },
   "husky": {
