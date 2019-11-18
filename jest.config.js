@@ -1,16 +1,12 @@
 module.exports = {
   verbose: true,
   collectCoverage: true,
-  collectCoverageFrom: [
-    '**/src/*.js',
-    '!**/node_modules/**'
-  ],
+  collectCoverageFrom: ['**/src/*.ts', '!**/node_modules/**'],
   coverageDirectory: 'test/coverage',
-  moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/$1'
-  },
-  moduleFileExtensions: ['js', 'json'],
-  transform: {
-    '^.+\\.js$': '<rootDir>/node_modules/babel-jest'
+  preset: 'ts-jest',
+  globals: {
+    'ts-jest': {
+      babelConfig: true
+    }
   }
 }

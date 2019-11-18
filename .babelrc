@@ -9,7 +9,8 @@
         "chrome": "67",
         "safari": "11.1"
       }
-    }]
+    }],
+    "@babel/preset-typescript"
   ],
   "env": {
     "test": {
