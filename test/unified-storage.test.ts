@@ -1,7 +1,7 @@
 import { key, sampleData } from './constant'
-import { Data, MyStorageImpl, UnifiedStorageAbstractFactory } from '../src/unified-storage';
+import { Data, TestStorageImpl, UnifiedStorageAbstractFactory } from '../src/unified-storage';
 
-class MyStorage implements MyStorageImpl {
+class MyStorage implements TestStorageImpl {
   private data: {
     [key: string]: any;
   }

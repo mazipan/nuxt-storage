@@ -1,9 +1,9 @@
-import { MyStorageImpl, UnifiedStorageAbstractFactory } from "../src/unified-storage";
+import { TestStorageImpl, UnifiedStorageAbstractFactory } from "../src/unified-storage";
 
 declare global {
   namespace NodeJS {
     interface Global {
-      myStorage: MyStorageImpl;
+      myStorage: TestStorageImpl;
       storage: UnifiedStorageAbstractFactory;
     }
   }

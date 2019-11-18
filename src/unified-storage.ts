@@ -1,14 +1,14 @@
-type IValue = Record<string, any> | string | number | null
+type Value = Record<string, any> | string | number | null
 
-export interface StorageImp {
-  getData(key: string): IValue;
+export interface StorageImpl {
+  getData(key: string): Value;
   setData(key: string, value: Record<string, any>, expiryInMinutes?: number, expiryUnit?: string): Data;
   removeItem(key: string): void;
   clear(): void;
 }
 
-export interface MyStorageImpl {
-  getItem(key: string): IValue;
+export interface TestStorageImpl {
+  getItem(key: string): Value;
   setItem(key: string, value: string): void;
   removeItem(key: string): void;
   clear(): void;
@@ -23,7 +23,7 @@ enum unit {
 
 export interface Data {
   created: number;
-  value: IValue;
+  value: Value;
   expiry: number;
   unit: unit;
 }
@@ -34,12 +34,12 @@ function __isNotNull<T>(value: T | undefined | null): value is T {
 
 const MILIS_MULTIPLIER = (1000 * 60) // default is in minutes
 
-export class UnifiedStorageAbstractFactory implements StorageImp {
-  private storage: Storage | MyStorageImpl
-  constructor(storage: Storage | MyStorageImpl) {
+export class UnifiedStorageAbstractFactory implements StorageImpl {
+  private storage: Storage | TestStorageImpl
+  constructor(storage: Storage | TestStorageImpl) {
     this.storage = storage
   }
-  getData(key: string): IValue {
+  getData(key: string): Value {
     try {
       const cache = this.storage.getItem(key)
       if (__isNotNull(cache)) {
@@ -75,7 +75,7 @@ export class UnifiedStorageAbstractFactory implements StorageImp {
       console.warn('failed parse JSON', error)
     }
   }
-  setData(key: string, value: IValue, expiryInMinutes = 5, expiryUnit: unit = unit.m): Data {
+  setData(key: string, value: Value, expiryInMinutes = 5, expiryUnit: unit = unit.m): Data {
     try {
       const data: Data = {
         created: new Date().getTime(),
@@ -108,7 +108,7 @@ export class UnifiedStorageAbstractFactory implements StorageImp {
 export class LocalStorageFactory {
   static storage: UnifiedStorageAbstractFactory
 
-  static create(): StorageImp {
+  static create(): StorageImpl {
     if ('localStorage' in window && window.localStorage) {
       if (!this.storage) {
         this.storage = new UnifiedStorageAbstractFactory(window.localStorage)
@@ -122,7 +122,7 @@ export class LocalStorageFactory {
 export class SessionStorageFactory {
   static storage: UnifiedStorageAbstractFactory
 
-  static create(): StorageImp {
+  static create(): StorageImpl {
     if ('sessionStorage' in window && window.sessionStorage) {
       if (!this.storage) {
         this.storage = new UnifiedStorageAbstractFactory(window.sessionStorage)
