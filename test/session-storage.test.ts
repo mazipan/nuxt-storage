@@ -30,9 +30,9 @@ describe('local-storage', () => {
   })
 
   test('clear should clear the storage', done => {
-    localStorage.setData(key, sampleData)
-    localStorage.clear()
-    const data = localStorage.getData(key)
+    sessionStorage.setData(key, sampleData)
+    sessionStorage.clear()
+    const data = sessionStorage.getData(key)
     expect(data).toBe(null)
     done()
   })
