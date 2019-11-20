@@ -2,9 +2,7 @@ import { key, sampleData } from './constant'
 import {
   Data,
   TestStorageImpl,
-  UnifiedStorageAbstractFactory,
-  LocalStorageFactory,
-  SessionStorageFactory
+  UnifiedStorageAbstractFactory
 } from '../src/unified-storage'
 
 class MyStorage implements TestStorageImpl {
