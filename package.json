@@ -6,7 +6,7 @@
     "clean": "rimraf dist",
     "copy": "node ./copy.js",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "test": "jest",
+    "test": "jest --verbose",
     "lint": "eslint --ext .ts --ignore-path .gitignore .",
     "lint:fix": "eslint --ext .ts --ignore-path .gitignore . --fix",
     "lint:report": "eslint --ext .ts --ignore-path .gitignore . --fix -f html-extended -o eslint-report.html",

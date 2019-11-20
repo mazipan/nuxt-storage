@@ -1,24 +1,3 @@
-type Value = Record<string, any> | string | number | null
-
-export interface StorageImpl {
-  getData(key: string): Value;
-  setData(
-    key: string,
-    value: Record<string, any>,
-    expiryInMinutes?: number,
-    expiryUnit?: string
-  ): Data;
-  removeItem(key: string): void;
-  clear(): void;
-}
-
-export interface TestStorageImpl {
-  getItem(key: string): Value;
-  setItem(key: string, value: string): void;
-  removeItem(key: string): void;
-  clear(): void;
-}
-
 enum unit {
   s = 's',
   m = 'm',
@@ -28,12 +7,34 @@ enum unit {
 
 export interface Data {
   created: number;
-  value: Value;
+  updated: number;
+  value: any;
   expiry: number;
   unit: unit;
 }
 
-function __isNotNull<T>(value: T | undefined | null): value is T {
+export interface StorageImpl {
+  getData(key: string, withMeta?: boolean): any | Data;
+  setData(
+    key: string,
+    value: Record<string, any>,
+    expiryInMinutes?: number,
+    expiryUnit?: string
+  ): void;
+  updateData(key: string, value: Record<string, any>): void;
+  removeItem(key: string): void;
+  clear(): void;
+}
+
+export interface TestStorageImpl {
+  getItem(key: string): any | Data;
+  setItem(key: string, value: any): void;
+  updateData(key: string, value: any): void;
+  removeItem(key: string): void;
+  clear(): void;
+}
+
+export function __isNotNull<T>(value: T | undefined | null): value is T {
   return (value as T) !== undefined && (value as T) !== null
 }
 
@@ -44,7 +45,7 @@ export class UnifiedStorageAbstractFactory implements StorageImpl {
   constructor(storage: Storage | TestStorageImpl) {
     this.storage = storage
   }
-  getData(key: string): Value {
+  getData(key: string, withMeta?: boolean): any | Data {
     try {
       const cache = this.storage.getItem(key)
       if (__isNotNull(cache)) {
@@ -69,6 +70,9 @@ export class UnifiedStorageAbstractFactory implements StorageImpl {
           const expiryTime: number = dateCache + expiryInMilis
 
           if (expiryTime > timeNow) {
+            if (withMeta) {
+              return cacheParsed
+            }
             return cacheParsed.value
           } else {
             console.warn('storage is expired')
@@ -82,28 +86,45 @@ export class UnifiedStorageAbstractFactory implements StorageImpl {
   }
   setData(
     key: string,
-    value: Value,
+    value: any,
     expiryInMinutes = 5,
     expiryUnit: unit = unit.m
-  ): Data {
+  ): void {
     try {
+      const date: number = new Date().getTime()
       const data: Data = {
-        created: new Date().getTime(),
+        created: date,
+        updated: date,
         value,
         expiry: expiryInMinutes,
         unit: expiryUnit
       }
       this.storage.setItem(key, JSON.stringify(data))
-      return data
     } catch (error) {
-      console.log('failed set data', error)
+      console.log('failed to set data', error)
+    }
+  }
+  updateData(key: string, value: any): void {
+    try {
+      let data: Data = this.getData(key, true)
+      if (__isNotNull(data)) {
+        delete data.value
+        data = {
+          ...data,
+          updated: new Date().getTime(),
+          value
+        }
+        this.storage.setItem(key, JSON.stringify(data))
+      }
+    } catch (error) {
+      console.log('failed to update data', error)
     }
   }
   removeItem(key: string): void {
     try {
       this.storage.removeItem(key)
     } catch (error) {
-      console.log('failed remove data', error)
+      console.log('failed to remove data', error)
     }
   }
   clear(): void {
