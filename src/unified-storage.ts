@@ -2,7 +2,12 @@ type Value = Record<string, any> | string | number | null
 
 export interface StorageImpl {
   getData(key: string): Value;
-  setData(key: string, value: Record<string, any>, expiryInMinutes?: number, expiryUnit?: string): Data;
+  setData(
+    key: string,
+    value: Record<string, any>,
+    expiryInMinutes?: number,
+    expiryUnit?: string
+  ): Data;
   removeItem(key: string): void;
   clear(): void;
 }
@@ -29,10 +34,10 @@ export interface Data {
 }
 
 function __isNotNull<T>(value: T | undefined | null): value is T {
-  return value as T !== undefined && value as T !== null
+  return (value as T) !== undefined && (value as T) !== null
 }
 
-const MILIS_MULTIPLIER = (1000 * 60) // default is in minutes
+const MILIS_MULTIPLIER = 1000 * 60 // default is in minutes
 
 export class UnifiedStorageAbstractFactory implements StorageImpl {
   private storage: Storage | TestStorageImpl
@@ -43,7 +48,7 @@ export class UnifiedStorageAbstractFactory implements StorageImpl {
     try {
       const cache = this.storage.getItem(key)
       if (__isNotNull(cache)) {
-        const cacheParsed: Data = JSON.parse(cache as string);
+        const cacheParsed: Data = JSON.parse(cache as string)
         if (__isNotNull(cacheParsed)) {
           // check cache expiry time
           const timeNow: number = new Date().getTime()
@@ -75,7 +80,12 @@ export class UnifiedStorageAbstractFactory implements StorageImpl {
       console.warn('failed parse JSON', error)
     }
   }
-  setData(key: string, value: Value, expiryInMinutes = 5, expiryUnit: unit = unit.m): Data {
+  setData(
+    key: string,
+    value: Value,
+    expiryInMinutes = 5,
+    expiryUnit: unit = unit.m
+  ): Data {
     try {
       const data: Data = {
         created: new Date().getTime(),
@@ -109,11 +119,14 @@ export class LocalStorageFactory {
   static storage: UnifiedStorageAbstractFactory
 
   static create(): StorageImpl {
-    if ('localStorage' in window && window.localStorage) {
-      if (!this.storage) {
-        this.storage = new UnifiedStorageAbstractFactory(window.localStorage)
+    if (window) {
+      if ('localStorage' in window && window.localStorage) {
+        if (!this.storage) {
+          this.storage = new UnifiedStorageAbstractFactory(window.localStorage)
+        }
+        return this.storage
       }
-      return this.storage
+      throw new Error(`localStorage doesn't supported`)
     }
     throw new Error(`localStorage doesn't supported`)
   }
@@ -123,11 +136,16 @@ export class SessionStorageFactory {
   static storage: UnifiedStorageAbstractFactory
 
   static create(): StorageImpl {
-    if ('sessionStorage' in window && window.sessionStorage) {
-      if (!this.storage) {
-        this.storage = new UnifiedStorageAbstractFactory(window.sessionStorage)
+    if (window) {
+      if ('sessionStorage' in window && window.sessionStorage) {
+        if (!this.storage) {
+          this.storage = new UnifiedStorageAbstractFactory(
+            window.sessionStorage
+          )
+        }
+        return this.storage
       }
-      return this.storage
+      throw new Error(`sessionStorage doesn't supported`)
     }
     throw new Error(`sessionStorage doesn't supported`)
   }
