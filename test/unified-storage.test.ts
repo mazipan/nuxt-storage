@@ -1,5 +1,11 @@
 import { key, sampleData } from './constant'
-import { Data, TestStorageImpl, UnifiedStorageAbstractFactory } from '../src/unified-storage';
+import {
+  Data,
+  TestStorageImpl,
+  UnifiedStorageAbstractFactory,
+  LocalStorageFactory,
+  SessionStorageFactory
+} from '../src/unified-storage'
 
 class MyStorage implements TestStorageImpl {
   private data: {
@@ -33,7 +39,7 @@ describe('local-storage', () => {
     expect(data.value).toEqual(sampleData)
     done()
   })
-  
+
   test('getData should successfully', done => {
     global.storage.setData(key, sampleData)
     const data = global.storage.getData(key)
@@ -50,6 +56,14 @@ describe('local-storage', () => {
   test('getData should return null because data is null', done => {
     global.storage.setData('KEY_NULL', null)
     const data = global.storage.getData('KEY_NULL')
+    expect(data).toBe(null)
+    done()
+  })
+
+  test('clear should clear the storage', done => {
+    global.storage.setData(key, sampleData)
+    global.storage.clear()
+    const data = global.storage.getData(key)
     expect(data).toBe(null)
     done()
   })
