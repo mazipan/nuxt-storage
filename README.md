@@ -34,18 +34,6 @@ nuxtStorage.localStorage.setData('key', 'value');
 nuxtStorage.sessionStorage.setData('key', 'value');
 ```
 
-Partial import
-
-```js
-// # for local storage
-import { getData, setData } from 'nuxt-storage/local-storage';
-
-// # for session storage
-// import { getData, setData } from 'nuxt-storage/session-storage';
-
-setData('key', 'value');
-```
-
 ## API
 
 | Method Name | Parameter                         | Default Value | Available Options |

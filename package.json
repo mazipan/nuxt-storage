@@ -6,10 +6,10 @@
     "clean": "rimraf dist",
     "copy": "node ./copy.js",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "test": "jest",
-    "lint": "eslint --ext .js --ignore-path .gitignore .",
-    "lint:fix": "eslint --ext .js --ignore-path .gitignore . --fix",
-    "lint:report": "eslint --ext .js --ignore-path .gitignore . --fix -f html-extended -o eslint-report.html",
+    "test": "jest --verbose",
+    "lint": "eslint --ext .ts --ignore-path .gitignore .",
+    "lint:fix": "eslint --ext .ts --ignore-path .gitignore . --fix",
+    "lint:report": "eslint --ext .ts --ignore-path .gitignore . --fix -f html-extended -o eslint-report.html",
     "prepublishOnly": "yarn clean && yarn build && yarn copy",
     "lint-staged": "lint-staged"
   },
@@ -41,8 +41,15 @@
   "devDependencies": {
     "@babel/core": "7.7.4",
     "@babel/preset-env": "7.7.4",
+    "@babel/preset-typescript": "^7.7.2",
     "@commitlint/cli": "8.2.0",
     "@commitlint/config-conventional": "8.2.0",
+    "@types/compression-webpack-plugin": "^2.0.1",
+    "@types/jest": "^24.0.23",
+    "@types/node": "^12.12.8",
+    "@types/webpack": "^4.41.0",
+    "@typescript-eslint/eslint-plugin": "^2.7.0",
+    "@typescript-eslint/parser": "^2.7.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "24.9.0",
     "babel-loader": "8.0.6",
@@ -50,24 +57,37 @@
     "copy-webpack-plugin": "5.0.5",
     "cross-env": "6.0.3",
     "eslint": "6.7.1",
+    "eslint-config-prettier": "^6.6.0",
     "eslint-config-standard": "14.1.0",
     "eslint-formatter-html-extended": "1.0.2",
     "eslint-loader": "3.0.2",
     "eslint-plugin-import": "2.18.2",
     "eslint-plugin-node": "10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-standard": "4.0.1",
     "husky": "3.1.0",
     "jest": "24.9.0",
     "lint-staged": "9.4.3",
+    "prettier": "^1.19.1",
     "rimraf": "3.0.0",
+    "ts-jest": "^24.1.0",
+    "ts-loader": "^6.2.1",
+    "ts-node": "^8.5.2",
+    "typescript": "^3.7.2",
     "webpack": "4.41.2",
     "webpack-cli": "3.3.10"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.{ts}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
