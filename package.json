@@ -45,7 +45,7 @@
     "@commitlint/cli": "8.2.0",
     "@commitlint/config-conventional": "8.2.0",
     "@types/compression-webpack-plugin": "2.0.1",
-    "@types/jest": "24.0.23",
+    "@types/jest": "24.0.24",
     "@types/node": "12.12.20",
     "@types/webpack": "4.41.0",
     "@typescript-eslint/eslint-plugin": "2.12.0",
