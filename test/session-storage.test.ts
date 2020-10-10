@@ -1,8 +1,8 @@
-import sessionStorage from '../src/local-storage'
+import sessionStorage from '../src/session-storage'
 import { key, sampleData } from './constant'
 import { Data } from '../src/unified-storage'
 
-describe('local-storage', () => {
+describe('session-storage', () => {
   test('setData should successfully', done => {
     sessionStorage.setData(key, sampleData)
     const data: any = sessionStorage.getData(key)
