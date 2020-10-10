@@ -1,7 +1,7 @@
 # 🛢 Nuxt-Storage
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
-
-[![License](https://img.shields.io/github/license/mazipan/nuxt-storage.svg?longCache=true)](https://github.com/mazipan/nuxt-storage) [![version](https://img.shields.io/npm/v/nuxt-storage.svg?maxAge=3600)](https://www.npmjs.com/package/nuxt-storage)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg)](#contributors)
+![](https://badgen.net/bundlephobia/minzip/nuxt-storage)
+[![version](https://img.shields.io/npm/v/nuxt-storage.svg?maxAge=3600)](https://www.npmjs.com/package/nuxt-storage)
 [![downloads](https://img.shields.io/npm/dt/nuxt-storage.svg?maxAge=86400)](https://www.npmjs.com/package/nuxt-storage) [![Travis](https://img.shields.io/travis/mazipan/nuxt-storage.svg?maxAge=86400)](https://travis-ci.org/mazipan/nuxt-storage)
 [![codecov](https://codecov.io/gh/mazipan/nuxt-storage/branch/master/graph/badge.svg?maxAge=86400)](https://codecov.io/gh/mazipan/nuxt-storage) ![Dependencies](https://img.shields.io/david/mazipan/nuxt-storage.svg)
 
