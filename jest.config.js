@@ -2,7 +2,7 @@ module.exports = {
   verbose: true,
   collectCoverage: true,
   collectCoverageFrom: ['**/src/*.ts', '!**/node_modules/**'],
-  coverageDirectory: 'test/coverage',
+  coverageDirectory: 'coverage',
   preset: 'ts-jest',
   globals: {
     'ts-jest': {
