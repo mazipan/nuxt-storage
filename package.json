@@ -1,93 +1,93 @@
 {
-  "name": "nuxt-storage",
-  "version": "1.2.2",
-  "description": "🛢 Utilities for easy read and write browser's storage in Nuxt.js project",
-  "scripts": {
-    "clean": "rimraf dist",
-    "copy": "node ./copy.js",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "test": "jest --verbose",
-    "lint": "eslint --ext .ts --ignore-path .gitignore .",
-    "lint:fix": "eslint --ext .ts --ignore-path .gitignore . --fix",
-    "lint:report": "eslint --ext .ts --ignore-path .gitignore . --fix -f html-extended -o eslint-report.html",
-    "prepublishOnly": "yarn clean && yarn build && yarn copy",
-    "lint-staged": "lint-staged"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mazipan/nuxt-storage.git"
-  },
-  "keywords": [
-    "nuxt",
-    "nuxt-storage",
-    "browser-storage",
-    "local-storage",
-    "session-storage"
-  ],
-  "author": "Irfan Maulana <github.com/mazipan>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/mazipan/nuxt-storage/issues"
-  },
-  "homepage": "https://github.com/mazipan/nuxt-storage#readme",
-  "main": "dist/nuxt-storage.min.js",
-  "files": [
-    "nuxt-storage.js",
-    "src",
-    "dist",
-    "local-storage",
-    "session-storage"
-  ],
-  "devDependencies": {
-    "@babel/core": "7.8.4",
-    "@babel/preset-env": "7.8.4",
-    "@babel/preset-typescript": "7.8.3",
-    "@commitlint/cli": "8.3.5",
-    "@commitlint/config-conventional": "8.3.4",
-    "@types/compression-webpack-plugin": "2.0.1",
-    "@types/jest": "25.1.1",
-    "@types/node": "12.12.21",
-    "@types/webpack": "4.41.5",
-    "@typescript-eslint/eslint-plugin": "2.19.0",
-    "@typescript-eslint/parser": "2.19.0",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "24.9.0",
-    "babel-loader": "8.0.6",
-    "compression-webpack-plugin": "3.1.0",
-    "copy-webpack-plugin": "5.1.1",
-    "cross-env": "6.0.3",
-    "eslint": "6.8.0",
-    "eslint-config-prettier": "6.10.0",
-    "eslint-config-standard": "14.1.0",
-    "eslint-formatter-html-extended": "1.0.2",
-    "eslint-loader": "3.0.3",
-    "eslint-plugin-import": "2.20.1",
-    "eslint-plugin-node": "11.0.0",
-    "eslint-plugin-prettier": "3.1.2",
-    "eslint-plugin-promise": "4.2.1",
-    "eslint-plugin-standard": "4.0.1",
-    "husky": "3.1.0",
-    "jest": "24.9.0",
-    "lint-staged": "10.0.7",
-    "prettier": "1.19.1",
-    "rimraf": "3.0.1",
-    "ts-jest": "25.2.0",
-    "ts-loader": "6.2.1",
-    "ts-node": "8.6.2",
-    "typescript": "3.7.5",
-    "webpack": "4.41.5",
-    "webpack-cli": "3.3.10"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{ts}": [
-      "prettier --write",
-      "eslint --fix",
-      "git add"
-    ]
-  }
+	"name": "nuxt-storage",
+	"version": "1.2.2",
+	"description": "🛢 Utilities for easy read and write browser's storage in Nuxt.js project",
+	"scripts": {
+		"clean": "rimraf dist",
+		"copy": "node ./copy.js",
+		"build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+		"test": "jest --verbose",
+		"lint": "eslint --ext .ts --ignore-path .gitignore .",
+		"lint:fix": "eslint --ext .ts --ignore-path .gitignore . --fix",
+		"lint:report": "eslint --ext .ts --ignore-path .gitignore . --fix -f html-extended -o eslint-report.html",
+		"prepublishOnly": "yarn clean && yarn build && yarn copy",
+		"lint-staged": "lint-staged"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/mazipan/nuxt-storage.git"
+	},
+	"keywords": [
+		"nuxt",
+		"nuxt-storage",
+		"browser-storage",
+		"local-storage",
+		"session-storage"
+	],
+	"author": "Irfan Maulana <github.com/mazipan>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/mazipan/nuxt-storage/issues"
+	},
+	"homepage": "https://github.com/mazipan/nuxt-storage#readme",
+	"main": "dist/nuxt-storage.min.js",
+	"files": [
+		"nuxt-storage.js",
+		"src",
+		"dist",
+		"local-storage",
+		"session-storage"
+	],
+	"devDependencies": {
+		"@babel/core": "7.11.6",
+		"@babel/preset-env": "7.11.5",
+		"@babel/preset-typescript": "7.10.4",
+		"@commitlint/cli": "11.0.0",
+		"@commitlint/config-conventional": "11.0.0",
+		"@types/compression-webpack-plugin": "4.0.1",
+		"@types/jest": "26.0.14",
+		"@types/node": "14.11.8",
+		"@types/webpack": "4.41.22",
+		"@typescript-eslint/eslint-plugin": "4.4.0",
+		"@typescript-eslint/parser": "4.4.0",
+		"babel-core": "7.0.0-bridge.0",
+		"babel-jest": "26.5.2",
+		"babel-loader": "8.1.0",
+		"compression-webpack-plugin": "6.0.3",
+		"copy-webpack-plugin": "6.2.1",
+		"cross-env": "7.0.2",
+		"eslint": "7.11.0",
+		"eslint-config-prettier": "6.10.0",
+		"eslint-config-standard": "14.1.0",
+		"eslint-formatter-html-extended": "1.0.2",
+		"eslint-loader": "4.0.2",
+		"eslint-plugin-import": "2.22.1",
+		"eslint-plugin-node": "11.1.0",
+		"eslint-plugin-prettier": "3.1.4",
+		"eslint-plugin-promise": "4.2.1",
+		"eslint-plugin-standard": "4.0.1",
+		"husky": "4.3.0",
+		"jest": "26.5.2",
+		"lint-staged": "10.4.0",
+		"prettier": "2.1.2",
+		"rimraf": "3.0.2",
+		"ts-jest": "26.4.1",
+		"ts-loader": "8.0.4",
+		"ts-node": "9.0.0",
+		"typescript": "4.0.3",
+		"webpack": "4.44.2",
+		"webpack-cli": "3.3.12"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.{ts}": [
+			"prettier --write",
+			"eslint --fix",
+			"git add"
+		]
+	}
 }
