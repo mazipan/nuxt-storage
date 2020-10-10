@@ -2,12 +2,12 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    node: true
+    node: true,
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    sourceType: 'module'
+    sourceType: 'module',
   },
   extends: ['plugin:@typescript-eslint/recommended', 'prettier'],
-  plugins: ['import', 'prettier']
+  plugins: ['import', 'prettier'],
 }
