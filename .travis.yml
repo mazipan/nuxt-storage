@@ -18,7 +18,7 @@ install:
   - pnpm install
 
 script:
-	- pnpm run test
+  - pnpm run test
   - pnpm run build
 
 after_script:
