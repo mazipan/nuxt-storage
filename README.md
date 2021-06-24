@@ -95,6 +95,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="http://stainfilm.com"><img src="https://avatars0.githubusercontent.com/u/3953002?v=4" width="100px;" alt="notjiam"/><br /><sub><b>notjiam</b></sub></a><br /><a href="https://github.com/mazipan/nuxt-storage/commits?author=notjiam" title="Tests">⚠️</a> <a href="https://github.com/mazipan/nuxt-storage/issues?q=author%3Anotjiam" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://www.mazipan.xyz/"><img src="https://avatars0.githubusercontent.com/u/7221389?v=4" width="100px;" alt="Irfan Maulana"/><br /><sub><b>Irfan Maulana</b></sub></a><br /><a href="https://github.com/mazipan/nuxt-storage/issues?q=author%3Amazipan" title="Bug reports">🐛</a> <a href="#maintenance-mazipan" title="Maintenance">🚧</a> <a href="https://github.com/mazipan/nuxt-storage/commits?author=mazipan" title="Tests">⚠️</a> <a href="https://github.com/mazipan/nuxt-storage/commits?author=mazipan" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/devzom"><img src="https://avatars.githubusercontent.com/u/1417473?v=4" width="100px;" alt="Jakub Zomerfeld"/><br /><sub><b>Jakub Zomerfeld</b></sub></a><br /> <a href="#" title="Documentation">📝</a></td>
   </tr>
 </table>
 
