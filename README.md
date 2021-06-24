@@ -19,22 +19,49 @@ Install using NPM or Yarn
 ```bash
 # NPM
 $ npm i nuxt-storage
+
 # Yarn
 $ yarn add nuxt-storage
 ```
 
 ## Sample using this package
 
-All API import
-
+##### Set data
 ```js
 import nuxtStorage from 'nuxt-storage';
 
 nuxtStorage.localStorage.setData('key', 'value');
 nuxtStorage.sessionStorage.setData('key', 'value');
+
+//Set data with expiry time
+
+// default time is 5 minutes, set it to 15
+nuxtStorage.localStorage.setData('key', 'value', 15);
+
+// default time unit is minutes , set it to hours, so type 'h'
+nuxtStorage.localStorage.setData('key', 'value', 1, 'h');
+```
+##### Get data by value
+```js
+nuxtStorage.localStorage.getData('key');
+nuxtStorage.sessionStorage.getData('key');
 ```
 
-## API
+
+##### Remove or clear storage (localStorage/sessionStorage)
+
+```js
+// Remove single item by **key**
+nuxtStorage.localStorage.removeItem('key');
+nuxtStorage.sessionStorage.removeItem('key');
+
+// Clear entire storage
+nuxtStorage.localStorage.clear());
+nuxtStorage.sessionStorage.clear();
+```
+
+
+## API options
 
 | Method Name | Parameter                         | Default Value | Available Options |
 |-------------|-----------------------------------|---------------|-------------------|
@@ -43,7 +70,8 @@ nuxtStorage.sessionStorage.setData('key', 'value');
 |             | `value` (type: any)               | Empty String  |  |
 |             | `expiry` (type: Number)           | 5             |  |
 |             | `expiryUnit` (type: String)       | m             | `s` = second, `m` = minutes, `h` = hour, `d` = day  |
-| clear       | -                                 |               |  |
+| removeItem  | `key` (type: String)              |               |  |
+| clear       | -                                 |               | | |
 
 
 ## Support me
