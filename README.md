@@ -19,22 +19,49 @@ Install using NPM or Yarn
 ```bash
 # NPM
 $ npm i nuxt-storage
+
 # Yarn
 $ yarn add nuxt-storage
 ```
 
 ## Sample using this package
 
-All API import
-
+##### Set data
 ```js
 import nuxtStorage from 'nuxt-storage';
 
 nuxtStorage.localStorage.setData('key', 'value');
 nuxtStorage.sessionStorage.setData('key', 'value');
+
+//Set data with expiry time
+
+// default time is 5 minutes, set it to 15
+nuxtStorage.localStorage.setData('key', 'value', 15);
+
+// default time unit is minutes , set it to hours, so type 'h'
+nuxtStorage.localStorage.setData('key', 'value', 1, 'h');
+```
+##### Get data by value
+```js
+nuxtStorage.localStorage.getData('key');
+nuxtStorage.sessionStorage.getData('key');
 ```
 
-## API
+
+##### Remove or clear storage (localStorage/sessionStorage)
+
+```js
+// Remove single item by **key**
+nuxtStorage.localStorage.removeItem('key');
+nuxtStorage.sessionStorage.removeItem('key');
+
+// Clear entire storage
+nuxtStorage.localStorage.clear());
+nuxtStorage.sessionStorage.clear();
+```
+
+
+## API options
 
 | Method Name | Parameter                         | Default Value | Available Options |
 |-------------|-----------------------------------|---------------|-------------------|
@@ -43,7 +70,8 @@ nuxtStorage.sessionStorage.setData('key', 'value');
 |             | `value` (type: any)               | Empty String  |  |
 |             | `expiry` (type: Number)           | 5             |  |
 |             | `expiryUnit` (type: String)       | m             | `s` = second, `m` = minutes, `h` = hour, `d` = day  |
-| clear       | -                                 |               |  |
+| removeItem  | `key` (type: String)              |               |  |
+| clear       | -                                 |               | | |
 
 
 ## Support me
@@ -67,6 +95,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="http://stainfilm.com"><img src="https://avatars0.githubusercontent.com/u/3953002?v=4" width="100px;" alt="notjiam"/><br /><sub><b>notjiam</b></sub></a><br /><a href="https://github.com/mazipan/nuxt-storage/commits?author=notjiam" title="Tests">⚠️</a> <a href="https://github.com/mazipan/nuxt-storage/issues?q=author%3Anotjiam" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://www.mazipan.xyz/"><img src="https://avatars0.githubusercontent.com/u/7221389?v=4" width="100px;" alt="Irfan Maulana"/><br /><sub><b>Irfan Maulana</b></sub></a><br /><a href="https://github.com/mazipan/nuxt-storage/issues?q=author%3Amazipan" title="Bug reports">🐛</a> <a href="#maintenance-mazipan" title="Maintenance">🚧</a> <a href="https://github.com/mazipan/nuxt-storage/commits?author=mazipan" title="Tests">⚠️</a> <a href="https://github.com/mazipan/nuxt-storage/commits?author=mazipan" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/devzom"><img src="https://avatars.githubusercontent.com/u/1417473?v=4" width="100px;" alt="Jakub Zomerfeld"/><br /><sub><b>Jakub Zomerfeld</b></sub></a><br /> <a href="#" title="Documentation">📝</a></td>
   </tr>
 </table>
 
